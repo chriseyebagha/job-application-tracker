@@ -11,7 +11,7 @@ Use these with Cursor, Claude Desktop, ChatGPT, or any AI coding assistant.
 ### Starting the Project
 
 ```
-I'm setting up a personal job application tracker that reads from Gmail.
+I'm setting up a {{USER_EMAIL_PREFIX}} job application tracker that reads from Gmail.
 I have the repository downloaded to [path/to/folder].
 
 Can you help me verify:
@@ -29,7 +29,7 @@ I'm a [beginner/intermediate/advanced] with coding.
 ### Step 1: Creating Google Cloud Project
 
 ```
-I need to set up Gmail API access for a personal project.
+I need to set up Gmail API access for a {{USER_EMAIL_PREFIX}} project.
 Can you walk me through:
 
 1. Creating a Google Cloud project

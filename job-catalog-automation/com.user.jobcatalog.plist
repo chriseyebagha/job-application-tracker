@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>com.yourusername.jobcatalog</string>
+    <string>com.{{USER_SYSTEM_USERNAME}}.jobcatalog</string>
     <key>ProgramArguments</key>
     <array>
         <string>/opt/homebrew/bin/node</string>
-        <string>/Users/yourusername/Documents/Projects/Personal Agent/job-catalog-automation/job_catalog_updater.js</string>
+        <string>/Users/{{USER_SYSTEM_USERNAME}}/Documents/Projects/Personal Agent/job-catalog-automation/job_catalog_updater.js</string>
     </array>
     <key>StartCalendarInterval</key>
     <dict>
@@ -17,9 +17,9 @@
         <integer>0</integer>
     </dict>
     <key>StandardOutPath</key>
-    <string>/tmp/com.yourusername.jobcatalog.out</string>
+    <string>/tmp/com.{{USER_SYSTEM_USERNAME}}.jobcatalog.out</string>
     <key>StandardErrorPath</key>
-    <string>/tmp/com.yourusername.jobcatalog.err</string>
+    <string>/tmp/com.{{USER_SYSTEM_USERNAME}}.jobcatalog.err</string>
     <key>RunAtLoad</key>
     <true/>
 </dict>

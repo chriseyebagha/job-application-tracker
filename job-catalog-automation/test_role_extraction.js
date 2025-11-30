@@ -2,7 +2,7 @@
 // Quick test script to validate role extraction
 
 const testSubjects = [
-    "Your application for Senior Analytics Engineer at Company Name",
+    "Your application for Senior Analytics Engineer at {{COMPANY_NAME_EXAMPLE}}",
     "Application for Data Analyst - Season role",
     "Thank you for applying to LaunchDarkly!",
     "Analytics Engineer (L4) - Experiences at Meta",

@@ -34,7 +34,7 @@
 **NARRATOR:**
 "Hey there! Are you job hunting and tired of losing track of all your applications? Wondering which companies you've applied to, which ones have responded, and what your interview rate actually is?
 
-I'm going to show you how to set up a personal job tracker that automatically reads your Gmail, finds all your job applications, and displays everything in a beautiful dashboard - all without writing a single line of code.
+I'm going to show you how to set up a {{USER_EMAIL_PREFIX}} job tracker that automatically reads your Gmail, finds all your job applications, and displays everything in a beautiful dashboard - all without writing a single line of code.
 
 The best part? It updates automatically every day, so you always know exactly where you stand in your job search.
 
@@ -117,7 +117,7 @@ Perfect! Now we're ready to download the tracker."
 **[VISUAL: GitHub repository page]**
 
 **NARRATOR:**
-"Head over to github.com/yourusername/job-application-tracker
+"Head over to github.com/{{USER_SYSTEM_USERNAME}}/job-application-tracker
 
 **[VISUAL: Slowly navigate to the repo]**
 
@@ -238,7 +238,7 @@ In the project folder, find the file called 'job_applications.html' and open it 
 
 **[VISUAL: Double-click the file, browser opens]**
 
-And there it is! Your personal job tracker dashboard!
+And there it is! Your {{USER_EMAIL_PREFIX}} job tracker dashboard!
 
 **[VISUAL: Tour the dashboard]**
 
@@ -318,7 +318,7 @@ Remember: whenever you're stuck, just ask the AI for help. That's what it's ther
 **[VISUAL: Show dashboard one more time]**
 
 **NARRATOR:**
-"And that's it! You now have a personal job tracker that:
+"And that's it! You now have a {{USER_EMAIL_PREFIX}} job tracker that:
 - Automatically monitors your Gmail
 - Tracks all your applications
 - Shows your interview metrics
@@ -339,7 +339,7 @@ Good luck with your job search! With this tracker, you'll always know exactly wh
 Happy job hunting, and may your interview rate be high!
 
 **[FADE TO END SCREEN with:]**
-- GitHub: github.com/yourusername/job-application-tracker
+- GitHub: github.com/{{USER_SYSTEM_USERNAME}}/job-application-tracker
 - Documentation: [link]
 - Need help? Open an issue on GitHub
 "
@@ -369,7 +369,7 @@ Happy job hunting, and may your interview rate be high!
 ## 📎 Video Description Template
 
 ```
-🎯 Automatically track your job applications with this personal dashboard!
+🎯 Automatically track your job applications with this {{USER_EMAIL_PREFIX}} dashboard!
 
 No coding required - just follow along and use an AI assistant to help with setup.
 
@@ -387,7 +387,7 @@ No coding required - just follow along and use an AI assistant to help with setu
 9:15 - Wrap Up
 
 🔗 LINKS:
-📦 GitHub Repository: https://github.com/yourusername/job-application-tracker
+📦 GitHub Repository: https://github.com/{{USER_SYSTEM_USERNAME}}/job-application-tracker
 📖 Full Documentation: [link]
 🤖 AI Prompts Guide: [link]
 🔧 Troubleshooting: [link]
@@ -444,7 +444,7 @@ Include these shots between main sections:
 4. **Show mistakes** - If you make an error, show how to fix it (relatable!)
 5. **Use captions** - Essential for accessibility
 6. **Test audio** - Make sure you're clear and loud enough
-7. **Clean desktop** - Hide personal info before recording
+7. **Clean desktop** - Hide {{USER_EMAIL_PREFIX}} info before recording
 
 ---
 

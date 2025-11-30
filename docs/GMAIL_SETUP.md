@@ -196,12 +196,12 @@ Want to track applications from multiple email accounts?
 ```json
 {
   "mcpServers": {
-    "gmail-personal": {
+    "gmail-{{USER_EMAIL_PREFIX}}": {
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-gmail"],
       "env": {
-        "GMAIL_CREDENTIALS_PATH": "~/job-tracker/config/personal-credentials.json",
-        "GMAIL_TOKEN_PATH": "~/job-tracker/config/personal"
+        "GMAIL_CREDENTIALS_PATH": "~/job-tracker/config/{{USER_EMAIL_PREFIX}}-credentials.json",
+        "GMAIL_TOKEN_PATH": "~/job-tracker/config/{{USER_EMAIL_PREFIX}}"
       }
     },
     "gmail-work": {

@@ -33,13 +33,13 @@ const getAuthClient = (email) => {
         return null;
     }
 
-    // If client_id/client_secret are missing, get them from personal account
+    // If client_id/client_secret are missing, get them from {{USER_EMAIL_PREFIX}} account
     let clientId = tokenData.client_id;
     let clientSecret = tokenData.client_secret;
 
     if (!clientId || !clientSecret) {
-        console.log(`Missing OAuth credentials for ${email}, using personal credentials...`);
-        const fallbackTokenFile = path.join(MCP_DIR, '.oauth2.personal@gmail.com.json');
+        console.log(`Missing OAuth credentials for ${email}, using {{USER_EMAIL_PREFIX}} credentials...`);
+        const fallbackTokenFile = path.join(MCP_DIR, '.oauth2.{{USER_EMAIL_PREFIX}}@gmail.com.json');
         const fallbackData = readJson(fallbackTokenFile);
         if (fallbackData) {
             clientId = fallbackData.client_id;

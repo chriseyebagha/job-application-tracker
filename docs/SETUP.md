@@ -3,7 +3,7 @@
 **Time needed: 15-20 minutes**  
 **Difficulty: Easy (with AI assistant) | Medium (without)**
 
-This guide will help you set up your personal job application tracker. **We recommend using an AI assistant** (Cursor, Claude Desktop, or ChatGPT) to help you through the process.
+This guide will help you set up your {{USER_EMAIL_PREFIX}} job application tracker. **We recommend using an AI assistant** (Cursor, Claude Desktop, or ChatGPT) to help you through the process.
 
 ---
 

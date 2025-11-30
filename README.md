@@ -94,7 +94,7 @@ Found a bug? Have an idea? Contributions welcome!
 
 ## 📝 License
 
-MIT License - feel free to use this for personal or commercial projects!
+MIT License - feel free to use this for {{USER_EMAIL_PREFIX}} or commercial projects!
 
 ## 🙏 Acknowledgments
 

@@ -112,7 +112,7 @@ Google Workspace (G Suite) APIs require OAuth2 authorization. Follow these steps
      "accounts": [
        {
          "email": "your.email@gmail.com",
-         "account_type": "personal",
+         "account_type": "{{USER_EMAIL_PREFIX}}",
          "extra_info": "Primary account with Family Calendar"
        }
      ]

@@ -44,9 +44,9 @@ const getAuthClient = (email) => {
             clientId = gauthData.installed.client_id;
             clientSecret = gauthData.installed.client_secret;
         } else {
-            // Fallback to personal token file (legacy behavior, might not be needed if .gauth.json exists)
+            // Fallback to {{USER_EMAIL_PREFIX}} token file (legacy behavior, might not be needed if .gauth.json exists)
             console.log(`Missing OAuth credentials for ${email}, checking fallback...`);
-            const fallbackTokenFile = path.join(MCP_DIR, '.oauth2.personal@gmail.com.json');
+            const fallbackTokenFile = path.join(MCP_DIR, '.oauth2.{{USER_EMAIL_PREFIX}}@gmail.com.json');
             const fallbackData = readJson(fallbackTokenFile);
             if (fallbackData) {
                 clientId = fallbackData.client_id;
@@ -110,7 +110,7 @@ const FINANCIAL_KEYWORDS = [
     'credit card application',
     'credit limit',
     'loan application',
-    'personal loan',
+    '{{USER_EMAIL_PREFIX}} loan',
     'statement is ready',
     'payment received',
     'payment confirmation',
@@ -124,10 +124,10 @@ const FINANCIAL_KEYWORDS = [
 const fetchRecentApplications = async (auth, email) => {
     const gmail = google.gmail({ version: 'v1', auth });
 
-    // For personal, all emails are job-related, so use a broad query
+    // For {{USER_EMAIL_PREFIX}}, all emails are job-related, so use a broad query
     // For other accounts, use targeted keywords
     let query;
-    if (email.includes('personal')) {
+    if (email.includes('{{USER_EMAIL_PREFIX}}')) {
         query = 'newer_than:14d'; // All emails from last 14 days
     } else {
         query = 'newer_than:14d (subject:"application" OR subject:"applied" OR subject:"interview" OR subject:"opportunity" OR subject:"position" OR "thank you for applying" OR "received your application" OR "application received" OR "unfortunately" OR "not selected" OR "moving forward")';
@@ -179,7 +179,7 @@ const fetchRecentApplications = async (auth, email) => {
 
             // Explicit overrides for known recruiters/senders
             const COMPANY_OVERRIDES = {
-                'Recruiter Name': 'Company Name',
+                '{{RECRUITER_NAME_EXAMPLE}}': '{{COMPANY_NAME_EXAMPLE}}',
                 'Microsoft Account': 'Microsoft'
             };
 
@@ -294,8 +294,8 @@ const fetchRecentApplications = async (auth, email) => {
                 continue; // Skip this entry
             }
 
-            // For personal account, skip filtering since all emails are job-related
-            const skipFiltering = email.includes('personal');
+            // For {{USER_EMAIL_PREFIX}} account, skip filtering since all emails are job-related
+            const skipFiltering = email.includes('{{USER_EMAIL_PREFIX}}');
 
             // Intelligent classification using pattern matching
             const fromLower = from.toLowerCase();
@@ -489,7 +489,7 @@ const updateCatalog = (newApps) => {
         const normalize = (str) => str.toLowerCase().replace(/[^a-z0-9]/g, '');
 
         // Helper to check if two company names are effectively the same
-        // Handles cases where one is a name ("Company Name") and one is an email ("no-reply@robinhood.com")
+        // Handles cases where one is a name ("{{COMPANY_NAME_EXAMPLE}}") and one is an email ("no-reply@robinhood.com")
         const areCompaniesSame = (name1, name2) => {
             const n1 = name1.toLowerCase();
             const n2 = name2.toLowerCase();
@@ -539,7 +539,7 @@ const updateCatalog = (newApps) => {
             }
 
             // If existing company name is an email but new one is a proper name, update it
-            // e.g. "no-reply@robinhood.com" -> "Company Name"
+            // e.g. "no-reply@robinhood.com" -> "{{COMPANY_NAME_EXAMPLE}}"
             if (existingApp.company.includes('@') && !newApp.company.includes('@')) {
                 allApps[matchIndex].company = newApp.company;
             }
