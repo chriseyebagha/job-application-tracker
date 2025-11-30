@@ -1,0 +1,10 @@
+{
+    "name": "job-catalog-automation",
+    "version": "1.0.0",
+    "description": "Automated job application catalog updater",
+    "main": "job_catalog_updater.js",
+    "type": "module",
+    "dependencies": {
+        "googleapis": "^144.0.0"
+    }
+}

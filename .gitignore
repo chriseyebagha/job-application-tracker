@@ -1,0 +1,46 @@
+# Sensitive credentials and tokens
+config/credentials.json
+config/token_*.json
+job-catalog-automation/config/credentials.json
+job-catalog-automation/config/token_*.json
+
+# MCP configuration (contains paths specific to user)
+.mcp/
+
+# Node modules
+node_modules/
+job-catalog-automation/node_modules/
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+
+# Generated files
+job_applications.html.backup
+
+# Temporary files
+*.tmp
+tmp/
+temp/
