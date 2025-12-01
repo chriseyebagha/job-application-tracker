@@ -33,5 +33,6 @@ After replacement, verify that:
 1.  `job_applications.html` contains the user's correct email prefix in the `account` fields.
 2.  `Refresh Job Catalog.command` points to the correct absolute path on the user's system.
 3.  The `plist` file contains the correct absolute paths.
+4.  `applications.json` exists and contains an empty array `[]`.
 
 Once personalized, proceed with the standard setup instructions in `README.md`.

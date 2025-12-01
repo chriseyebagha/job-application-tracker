@@ -110,7 +110,7 @@ const FINANCIAL_KEYWORDS = [
     'credit card application',
     'credit limit',
     'loan application',
-    '{{USER_EMAIL_PREFIX}} loan',
+    'personal loan',
     'statement is ready',
     'payment received',
     'payment confirmation',
@@ -455,6 +455,7 @@ const fetchRecentApplications = async (auth, email) => {
 
 // Update HTML Catalog with smart status updates
 const updateCatalog = (newApps) => {
+    const DATA_FILE = path.join(process.env.HOME, 'Documents/Projects/Personal Agent/applications.json');
     let targetFile = CATALOG_FILE;
 
     // Check if Documents folder is accessible, if not use fallback
@@ -465,16 +466,23 @@ const updateCatalog = (newApps) => {
         targetFile = BACKUP_CATALOG_FILE;
     }
 
-    // Read existing applications from HTML if it exists
+    // Read existing applications from JSON file (Source of Truth)
     let existingApps = [];
-    if (fs.existsSync(targetFile)) {
+    if (fs.existsSync(DATA_FILE)) {
+        try {
+            existingApps = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
+        } catch (e) {
+            console.warn('Could not parse applications.json, starting fresh');
+        }
+    } else if (fs.existsSync(targetFile)) {
+        // Fallback: Try to recover from HTML if JSON doesn't exist yet
         const htmlContent = fs.readFileSync(targetFile, 'utf8');
         const dataMatch = htmlContent.match(/const applications = \[(.*?)\];/s);
         if (dataMatch) {
             try {
                 existingApps = JSON.parse('[' + dataMatch[1] + ']');
             } catch (e) {
-                console.warn('Could not parse existing applications, starting fresh');
+                console.warn('Could not parse existing applications from HTML');
             }
         }
     }
@@ -551,6 +559,9 @@ const updateCatalog = (newApps) => {
         }
     });
 
+    // SAVE DATA: Write updated applications back to JSON file
+    fs.writeFileSync(DATA_FILE, JSON.stringify(allApps, null, 2));
+
     // Read template
     const template = fs.readFileSync(TEMPLATE_FILE, 'utf8');
 
@@ -591,7 +602,7 @@ const updateCatalog = (newApps) => {
     fs.writeFileSync(targetFile, htmlOutput);
 
     if (addedCount > 0 || updatedCount > 0) {
-        console.log(`Added ${addedCount} new applications, updated ${updatedCount} statuses to ${targetFile}`);
+        console.log(`Added ${addedCount} new applications, updated ${updatedCount} statuses. Saved to ${DATA_FILE} and ${targetFile}`);
     } else {
         console.log('No new applications or status updates found.');
     }
